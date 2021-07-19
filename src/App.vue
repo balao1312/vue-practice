@@ -32,7 +32,7 @@ export default {
         id: 2,
         text: "Do 2222 thing",
         day: "March 1st at 2:30pm",
-        remider: true,
+        remider: false,
       },
       {
         id: 3,
