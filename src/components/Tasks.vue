@@ -1,12 +1,12 @@
 <template>
   <div v-for="task in tasks" :key="task.id">
     <!-- <h3>{{ task.text }}</h3> -->
-    <Task @delete-task="$emit('delete-task', task.id)" :task="task"/>
+    <Task @delete-task="$emit('delete-task', task.id)" :task="task" />
   </div>
 </template>
 
 <script>
-import Task from './Task'
+import Task from "./Task";
 
 export default {
   name: "Tasks",
@@ -14,8 +14,8 @@ export default {
     tasks: Array,
   },
   components: {
-      Task,
+    Task,
   },
-  emits: ['delete-task'],
+  emits: ["delete-task"],
 };
 </script>

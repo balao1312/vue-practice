@@ -1,9 +1,10 @@
 <template>
-  <div :class="[task.remider?'reminder':'', 'task']">
-      <h3>{{ task.text }}
-          <i @click="onDelete(task.id)" class="fas fa-times"></i>
-      </h3>
-      <p>{{ task.day }}</p>
+  <div :class="[task.remider ? 'reminder' : '', 'task']">
+    <h3>
+      {{ task.text }}
+      <i @click="onDelete(task.id)" class="fas fa-times"></i>
+    </h3>
+    <p>{{ task.day }}</p>
   </div>
 </template>
 
@@ -17,9 +18,9 @@ export default {
   methods: {
     onDelete(id) {
       // console.log(id);
-      this.$emit('delete-task', id)
-    }
-  }
+      this.$emit("delete-task", id);
+    },
+  },
 };
 </script>
 
@@ -34,7 +35,7 @@ export default {
   cursor: pointer;
 }
 .task:hover {
-  background: hsl(200, 100%, 50%)
+  background: hsl(200, 100%, 50%);
 }
 .task.reminder {
   border-left: 5px solid green;
