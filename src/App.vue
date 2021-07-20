@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <Header title="Task tracker" />
-    <Tasks @delete-task="deleteTask" :tasks="tasks" />
+    <Tasks
+      @toggle-reminder="toggleReminder"
+      @delete-task="deleteTask"
+      :tasks="tasks"
+    />
   </div>
 </template>
 
@@ -26,28 +30,39 @@ export default {
         id: 1,
         text: "Do 1 thing",
         day: "March 1st at 2:30pm",
-        remider: true,
+        reminder: true,
       },
       {
         id: 2,
         text: "Do 2222 thing",
         day: "March 1st at 2:30pm",
-        remider: false,
+        reminder: false,
       },
       {
         id: 3,
         text: "Buy a computer",
         day: "March 1st at 2:30pm",
-        remider: true,
+        reminder: true,
       },
     ];
   },
   methods: {
     deleteTask(id) {
-      if (confirm('Are you sure?')) {
+      if (confirm("Are you sure?")) {
         console.log(`Deleting task ${id}`);
         this.tasks = this.tasks.filter((task) => task.id != id);
       }
+    },
+    toggleReminder(id) {
+      console.log(`Toggling task ${id}`);
+      this.tasks = this.tasks.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              reminder: !task.reminder,
+            }
+          : task
+      );
     },
   },
 };
