@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Header title="Task tracker" />
+    <AddTask @add-task="addTask" />
     <Tasks
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
@@ -11,6 +12,7 @@
 
 <script>
 import Header from "./components/Header";
+import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 
 export default {
@@ -18,6 +20,7 @@ export default {
   components: {
     Header,
     Tasks,
+    AddTask,
   },
   data() {
     return {
@@ -47,6 +50,10 @@ export default {
     ];
   },
   methods: {
+    addTask(task) {
+      // this.tasks.push(task);   //same as blow
+      this.tasks = [...this.tasks, task];
+    },
     deleteTask(id) {
       if (confirm("Are you sure?")) {
         console.log(`Deleting task ${id}`);

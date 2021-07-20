@@ -34,7 +34,7 @@ export default {
 .task:hover {
   background: hsl(200, 100%, 50%);
 }
-.task.reminder {
+.reminder {
   border-left: 5px solid green;
 }
 .task h3 {
