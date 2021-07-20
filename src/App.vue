@@ -36,7 +36,7 @@ export default {
       },
       {
         id: 3,
-        text: "Buy a compouter",
+        text: "Buy a computer",
         day: "March 1st at 2:30pm",
         remider: true,
       },
@@ -44,8 +44,10 @@ export default {
   },
   methods: {
     deleteTask(id) {
-      console.log(`Deleting task ${id}`);
-      this.tasks = this.tasks.filter((task) => task.id != id);
+      if (confirm('Are you sure?')) {
+        console.log(`Deleting task ${id}`);
+        this.tasks = this.tasks.filter((task) => task.id != id);
+      }
     },
   },
 };
