@@ -48,9 +48,18 @@ export default {
       const data = await res.json();
       return data;
     },
-    addTask(task) {
+    async addTask(task) {
+      const res = await fetch("api/tasks", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(task),
+      });
+      const data = await res.json()
+
       // this.tasks.push(task);   //same as blow
-      this.tasks = [...this.tasks, task];
+      this.tasks = [...this.tasks, data];
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
