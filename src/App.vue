@@ -56,7 +56,7 @@ export default {
         },
         body: JSON.stringify(task),
       });
-      const data = await res.json()
+      const data = await res.json();
 
       // this.tasks.push(task);   //same as blow
       this.tasks = [...this.tasks, data];
@@ -64,10 +64,15 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
     },
-    deleteTask(id) {
+    async deleteTask(id) {
       if (confirm("Are you sure?")) {
         console.log(`Deleting task ${id}`);
-        this.tasks = this.tasks.filter((task) => task.id != id);
+        const res = await fetch(`api/tasks/${id}`, {
+          method: "DELETE",
+        });
+        res.status === 200
+          ? (this.tasks = this.tasks.filter((task) => task.id != id))
+          : alert("Error deleting task.");
       }
     },
     toggleReminder(id) {
