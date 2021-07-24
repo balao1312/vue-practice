@@ -5,19 +5,19 @@
       title="Task tracker"
       :showAddTask="showAddTask"
     />
-    <div v-if="showAddTask">
-      <AddTask @add-task="addTask" />
-    </div>
+    <AddTask v-if="showAddTask" @add-task="addTask" />
     <Tasks
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
       :tasks="tasks"
     />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 
@@ -25,6 +25,7 @@ export default {
   name: "App",
   components: {
     Header,
+    Footer,
     Tasks,
     AddTask,
   },
