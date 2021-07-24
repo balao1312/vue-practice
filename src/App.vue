@@ -11,6 +11,7 @@
       @delete-task="deleteTask"
       :tasks="tasks"
     />
+    <router-view></router-view>
     <Footer />
   </div>
 </template>
