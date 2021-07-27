@@ -1,5 +1,7 @@
 <template>
-  <AddTask v-if="showAddTask" @add-task="addTask" />
+  <transition name="fade">
+    <AddTask v-if="showAddTask" @add-task="addTask" />
+  </transition>
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"
@@ -91,3 +93,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

@@ -44,11 +44,11 @@ body {
   font-family: "Poppins", sans-serif;
 }
 .container {
-  max-width: 500px;
+  max-width: 70%;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  /* border: 1px solid steelblue; */
   padding: 30px;
   border-radius: 5px;
 }
