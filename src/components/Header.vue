@@ -7,6 +7,7 @@
         @btn-click="$emit('toggle-filter')"
         :color="filtered ? 'orange' : 'purple'"
         :text="`reminder filtered: ${filtered}`"
+        msg="toggle filter"
       />
         <!-- :text="`filtered: ${filtered}`" -->
       <Button
@@ -14,6 +15,7 @@
         @btn-click="$emit('toggle-add-task')"
         :color="showAddTask ? 'red' : 'green'"
         :text="showAddTask ? 'Close' : 'Add Task'"
+        msg="toggle add task"
       />
     </div>
   </header>

@@ -10,10 +10,11 @@ export default {
   props: {
     text: String,
     color: String,
+    msg: String,
   },
   methods: {
     onClick() {
-      console.log("button clicked");
+      console.log(this.msg);
       this.$emit('btn-click')
     },
   },
