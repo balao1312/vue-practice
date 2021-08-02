@@ -1,13 +1,17 @@
 <template>
-  <div
-    class="blk"
-    @mouseover="mouseEvent($event, 5)"
-    @mouseleave="mouseEvent($event, 8)"
-    @dblclick="mouseEvent"
-  >
-    Test Section
+  <div class="ctn">
+    <div
+      class="blk"
+      @mouseover="mouseEvent($event, 5)"
+      @mouseleave="mouseEvent($event, 8)"
+      @dblclick="mouseEvent"
+    >
+      Test Section
+    </div>
+    <div class="blk" @mousemove="mouseMovement">
+      position - {{ x }} - {{ y }}
+    </div>
   </div>
-  <div class="blk" @mousemove="mouseMovement">position - {{ x }} - {{ y }}</div>
 </template>
 
 <script>
@@ -38,9 +42,16 @@ export default {
 <style scoped>
 .blk {
   background-color: hsl(40, 100%, 90%);
+  border: 3px solid hsl(200, 100%, 50%);
+  border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
-  width: 500px;
-  height: 100px;
+  width: 200px;
+  height: 50px;
+}
+.ctn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 </style>
