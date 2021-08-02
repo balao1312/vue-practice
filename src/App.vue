@@ -2,10 +2,12 @@
   <div class="container">
     <Header
       @toggle-add-task="toggleAddTask"
+      @toggle-filter="toggleFilter"
       title="Task tracker"
       :showAddTask="showAddTask"
+      :filtered="filtered"
     />
-    <router-view :showAddTask="showAddTask"></router-view>
+    <router-view :showAddTask="showAddTask" :filtered="filtered"></router-view>
     <Footer />
   </div>
 </template>
@@ -23,11 +25,15 @@ export default {
   data() {
     return {
       showAddTask: false,
+      filtered: false,
     };
   },
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask;
+    },
+    toggleFilter() {
+      this.filtered = !this.filtered;
     },
   },
 };

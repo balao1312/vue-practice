@@ -1,12 +1,21 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button
-      v-show="isHomePage"
-      @btn-click="$emit('toggle-add-task')"
-      :color="showAddTask ? 'red' : 'green'"
-      :text="showAddTask ? 'Close' : 'Add Task'"
-    />
+    <div>
+      <Button
+        v-show="isHomePage"
+        @btn-click="$emit('toggle-filter')"
+        :color="filtered ? 'orange' : 'purple'"
+        :text="`reminder filtered: ${filtered}`"
+      />
+        <!-- :text="`filtered: ${filtered}`" -->
+      <Button
+        v-show="isHomePage"
+        @btn-click="$emit('toggle-add-task')"
+        :color="showAddTask ? 'red' : 'green'"
+        :text="showAddTask ? 'Close' : 'Add Task'"
+      />
+    </div>
   </header>
 </template>
 
@@ -18,20 +27,21 @@ export default {
   props: {
     title: String,
     showAddTask: Boolean,
+    filtered: Boolean,
   },
   components: {
     Button,
   },
-  emits: ["toggle-add-task"],
+  emits: ["toggle-add-task", "toggle-filter"],
   computed: {
     isHomePage() {
-      if (this.$route.path === '/') {
-        return true
+      if (this.$route.path === "/") {
+        return true;
       } else {
-        return false
+        return false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

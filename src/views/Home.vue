@@ -5,7 +5,7 @@
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"
-    :tasks="tasks"
+    :tasks="filteredTasks"
   />
 </template>
 
@@ -21,6 +21,7 @@ export default {
   },
   props: {
     showAddTask: Boolean,
+    filtered: Boolean,
   },
   data() {
     return {
@@ -29,6 +30,15 @@ export default {
   },
   async created() {
     this.tasks = await this.fetchTasks();
+  },
+  computed: {
+    filteredTasks() {
+      if (this.filtered === true) {
+        return this.tasks.filter((task) => task.reminder === true);
+      } else {
+        return this.tasks;
+      }
+    },
   },
   methods: {
     async fetchTasks() {

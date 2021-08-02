@@ -1,7 +1,11 @@
 <template>
   <div v-for="task in tasks" :key="task.id">
     <!-- <h3>{{ task.text }}</h3> -->
-    <Task @toggle-reminder="$emit('toggle-reminder', task.id)" @delete-task="$emit('delete-task', task.id)" :task="task" />
+    <Task
+      @toggle-reminder="$emit('toggle-reminder', task.id)"
+      @delete-task="$emit('delete-task', task.id)"
+      :task="task"
+    />
   </div>
 </template>
 
