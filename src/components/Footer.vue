@@ -2,6 +2,8 @@
   <footer>
     <p>Copyright &copy; 2021</p>
     <router-link to="/about">About</router-link>
+    &nbsp;
+    <router-link to="/test">Test</router-link>
   </footer>
 </template>
 
