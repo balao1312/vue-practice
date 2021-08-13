@@ -23,6 +23,12 @@
       "day": "July 30th at 18:00",
       "reminder": false,
       "id": 4
+    },
+    {
+      "text": "Finish Weekly Report",
+      "day": "August 5th at 1800pm",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
